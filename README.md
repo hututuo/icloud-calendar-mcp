@@ -78,6 +78,12 @@ npm run privacy:scan
 
 完整限制以工具 schema 和测试为准。读取规模过大时缩小日期范围；UID／更新回退涉及完整日历时，需要使用较小的专用日历，不要放宽安全边界。
 
+## 可选扩展：Bark 手机推送
+
+即时手机推送放在独立的 [Bark Notification MCP](https://github.com/hututuo/bark-notification-mcp) 仓库；本日历仓库不捆绑 Bark 源码，也不会自动开启推送。需要时按其[组合部署指南](https://github.com/hututuo/bark-notification-mcp/blob/main/docs/DEPLOYMENT.md)接入已有 MCP，保留原 owner 鉴权、日历凭据和写入开关。
+
+Bark 设备 key 只配置在服务端，默认禁用，测试须经设备所有者同意。优先发送低敏通用信号；正文会经过公共 Bark 服务和 Apple APNs，并可能显示在锁屏。普通推送不是 iPhone「时钟」闹钟，API 接受不代表手机收到，也不提供可靠定时或送达保证。
+
 ## 版本与验收
 
 `0.2.0` 是公共发行版本：基于 `0.1.10` 的日历核心，移除了部署身份及私有记录，新增每实例区域节点配置、可复现构建和公开部署指南。它不包含任何可用账号、部署授权或真实日历导出。
