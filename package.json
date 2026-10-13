@@ -1,0 +1,27 @@
+{
+  "name": "icloud-calendar-mcp",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "build": "bash scripts/build.sh",
+    "validate": "node scripts/validate-artifact.mjs",
+    "configure:site": "node scripts/configure-site.mjs",
+    "check": "npm test && npm run build && npm run validate",
+    "privacy:scan": "node scripts/privacy-scan.mjs",
+    "audit:deps": "npm audit"
+  },
+  "dependencies": {
+    "fast-xml-parser": "5.11.2",
+    "ical.js": "2.2.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  },
+  "license": "MIT",
+  "description": "Owner-bound iCloud CalDAV MCP adapter for a private ChatGPT Site",
+  "engines": {
+    "node": ">=24"
+  }
+}
